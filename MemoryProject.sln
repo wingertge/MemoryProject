@@ -7,11 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCore", "MemoryCore\Me
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryServer", "MemoryServer\MemoryServer.csproj", "{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryClient.Windows", "MemoryClient.Windows\MemoryClient.Windows.csproj", "{4FFF466E-F147-4B04-B486-9C15E3242C9D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF} = {1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryServer.Core", "MemoryServer.Core\MemoryServer.Core.csproj", "{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryClient.Web", "MemoryClient.Web\MemoryClient.Web.csproj", "{BBA0FB2F-9D80-4E91-B121-C51DB5E9ED8B}"
@@ -42,10 +37,6 @@ Global
 		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Release|Any CPU.ActiveCfg = Release|Any CPU
