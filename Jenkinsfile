@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat("docker-compose -f docker-compose.ci.build.yml up logs --no-color")
+        bat("docker-compose -f docker-compose.ci.build.yml up --no-color")
       }
     }
     stage('Deploy') {
