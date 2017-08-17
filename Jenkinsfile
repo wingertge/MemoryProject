@@ -21,7 +21,8 @@ node {
   }
 
   stage('Build') {
-    bat("docker run --rm -v \"$WORKSPACE\\:/sln\" microsoft/aspnetcore-build:2.0 sh ./sln/$entryName")
+    bat("docker build -t ${imageTagWeb} ./MemoryClient.Web")
+	bat("docker build -t ${imageTagApi} ./MemoryServer")
   }
 
   stage('Deploy') {
