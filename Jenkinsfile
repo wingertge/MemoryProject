@@ -21,8 +21,8 @@ node {
   }
 
   stage('Build') {
-    bat("docker build -t ${imageTagWeb} ./MemoryClient.Web")
-	bat("docker build -t ${imageTagApi} ./MemoryServer")
+    dir('MemoryClient.Web') { bat("docker build -t ${imageTagWeb} .") }
+	dir('MemoryServer') { bat("docker build -t ${imageTagApi} .") }
   }
 
   stage('Deploy') {
