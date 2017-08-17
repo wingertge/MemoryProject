@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using MemoryCore.DbModels;
 using MemoryServer.Core.Business;
 using MemoryServer.Core.Business.Impl;
@@ -14,36 +13,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Localization;
 
 namespace MemoryServer
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-
-            if (env.IsDevelopment()) builder.AddUserSecrets<Startup>();
-
-            builder.AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
-        public IConfigurationRoot Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization(options => options.ResourcesPath = "Resources");
-            services.AddOptions();
             services.Configure<Config>(Configuration.Bind);
-            services.AddSingleton<IConfiguration>(Configuration);
-            services.AddDbContext<MemoryContext>(
+            services.AddDbContextPool<MemoryContext>(
                 options => options.UseNpgsql(Configuration["database"], b => b.MigrationsAssembly("MemoryServer")));
 
             services.AddIdentity<User, IdentityRole<Guid>>()
@@ -104,25 +90,8 @@ namespace MemoryServer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            var supportedCultures = new[]
-            {
-                new CultureInfo("en-US"),
-            };
-
-            app.UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("en-US"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            });
-
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-            else
-                app.UseExceptionHandler("/Home/Error");
 
             app.UseAuthentication();
 
