@@ -23,7 +23,10 @@ pipeline {
     }
     stage('Webpack') {
       steps {
-        bat(script: 'webpack', returnStatus: true, returnStdout: true)
+        dir(path: 'MemoryClient.Web') {
+          bat(script: 'webpack', returnStatus: true, returnStdout: true)
+        }
+        
       }
     }
     stage('Build') {
