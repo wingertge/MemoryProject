@@ -17,7 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.development.sh = build.development.sh
 		build.master.ps1 = build.master.ps1
 		build.master.sh = build.master.sh
-		Jenkinsfile = Jenkinsfile
 		Jenkinsfile.bak = Jenkinsfile.bak
 		run.debug.ps1 = run.debug.ps1
 	EndProjectSection
