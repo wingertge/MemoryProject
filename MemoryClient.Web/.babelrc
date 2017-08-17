@@ -1,0 +1,8 @@
+﻿{
+  "presets": ["es2015", "react"],
+  "plugins": [
+    ["react-intl", {
+      "messagesDir": "./Scripts/lang"
+    }]
+  ]
+}

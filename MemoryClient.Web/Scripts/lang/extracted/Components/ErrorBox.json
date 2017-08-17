@@ -1,0 +1,10 @@
+[
+  {
+    "id": "errorHeader",
+    "defaultMessage": "An Error occured"
+  },
+  {
+    "id": "errorConfirm",
+    "defaultMessage": "Close"
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "lessonsLabel",
+    "defaultMessage": "Lessons"
+  },
+  {
+    "id": "add",
+    "defaultMessage": "Add"
+  },
+  {
+    "id": "languagePair",
+    "defaultMessage": "{languageFrom} ({countryFrom}) - {languageTo} ({countryTo})"
+  },
+  {
+    "id": "reading",
+    "description": "test",
+    "defaultMessage": "Reading"
+  },
+  {
+    "id": "pronunciation",
+    "defaultMessage": "Pronunciation"
+  },
+  {
+    "id": "meaning",
+    "defaultMessage": "Meaning"
+  },
+  {
+    "id": "currentGrade",
+    "defaultMessage": "Current Grade"
+  },
+  {
+    "id": "nextReview",
+    "defaultMessage": "Next Review"
+  }
+]

@@ -1,0 +1,27 @@
+﻿apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: memoryclient-web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: memoryclient-web
+        tier: frontend
+    spec:
+      containers:
+        - image: eu.gcr.io/plenary-vim-176019/web:1.0.0
+          name: client
+          ports:
+            - containerPort: 80
+              name: http
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ApiHost
+              value: api
+            - name: ApiPort
+              value: "5000"
+			- name: ApiProtocol
+			  value: http

@@ -1,0 +1,13 @@
+﻿{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "commonjs",
+    "sourceMap": true,
+    "jsx": "react",
+    "target": "es6",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./Scripts/**/*"
+  ]
+}

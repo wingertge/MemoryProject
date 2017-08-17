@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rightNow",
+    "defaultMessage": "Right now"
+  },
+  {
+    "id": "appName",
+    "defaultMessage": "Memory"
+  },
+  {
+    "id": "lessonsLabel",
+    "defaultMessage": "Lessons"
+  },
+  {
+    "id": "reviewsLabel",
+    "defaultMessage": "Reviews"
+  },
+  {
+    "id": "manageAccount",
+    "defaultMessage": "Account Settings"
+  },
+  {
+    "id": "logout",
+    "defaultMessage": "Sign Out"
+  },
+  {
+    "id": "nextReviews",
+    "defaultMessage": "Next Reviews"
+  },
+  {
+    "id": "reviewsNextHour",
+    "defaultMessage": "Next Hour"
+  },
+  {
+    "id": "reviewsNextDay",
+    "defaultMessage": "Next 24h"
+  }
+]

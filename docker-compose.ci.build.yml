@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  memoryproject:
+    image: microsoft/aspnetcore-build:2.0.0-preview2
+    volumes:
+      - .:/sln
+    working_dir: /sln
+    entrypoint: ["sh", "./build.sh"]

@@ -1,0 +1,40 @@
+﻿@model MemoryCore.Models.RegisterModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Register - Memory";
+}
+
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>Register</legend>
+    <div class="editor-label">
+        @Html.LabelFor(a => a.Email)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(a => a.Email)
+        @Html.ValidationMessageFor(a => a.Email)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(a => a.Username)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(a => a.Username)
+        @Html.ValidationMessageFor(a => a.Username)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(a => a.Password)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(a => a.Password)
+        @Html.ValidationMessageFor(a => a.Password)
+    </div>
+    <p>
+        <a class="btn" value="Login" href="@Url.Action("Login")"></a>
+        <input type="submit" value="Submit"/>
+    </p>
+</fieldset>
+}

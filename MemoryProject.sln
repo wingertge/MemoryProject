@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCore", "MemoryCore\MemoryCore.csproj", "{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryServer", "MemoryServer\MemoryServer.csproj", "{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryClient.Windows", "MemoryClient.Windows\MemoryClient.Windows.csproj", "{4FFF466E-F147-4B04-B486-9C15E3242C9D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF} = {1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryServer.Core", "MemoryServer.Core\MemoryServer.Core.csproj", "{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryClient.Web", "MemoryClient.Web\MemoryClient.Web.csproj", "{BBA0FB2F-9D80-4E91-B121-C51DB5E9ED8B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AF7259B4-C2A8-4AAC-90BB-C4EE3DF9E2D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93E32B35-CC97-4008-9DC9-437DD0EC672D}"
+	ProjectSection(SolutionItems) = preProject
+		build.debug.ps1 = build.debug.ps1
+		build.development.sh = build.development.sh
+		build.master.ps1 = build.master.ps1
+		build.master.sh = build.master.sh
+		Jenkinsfile = Jenkinsfile
+		run.debug.ps1 = run.debug.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F3AE78A-7FA5-488C-9EB4-BA178552C7CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4AF0868-E6F5-45F2-8E53-9D2D1942A3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFF466E-F147-4B04-B486-9C15E3242C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5851126A-6FFE-41DE-8DE1-A5FFCB38215C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA0FB2F-9D80-4E91-B121-C51DB5E9ED8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA0FB2F-9D80-4E91-B121-C51DB5E9ED8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA0FB2F-9D80-4E91-B121-C51DB5E9ED8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA0FB2F-9D80-4E91-B121-C51DB5E9ED8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF7259B4-C2A8-4AAC-90BB-C4EE3DF9E2D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7259B4-C2A8-4AAC-90BB-C4EE3DF9E2D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF7259B4-C2A8-4AAC-90BB-C4EE3DF9E2D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF1B3541-32A1-4F99-956B-DEF4A47040D3}
+	EndGlobalSection
+EndGlobal

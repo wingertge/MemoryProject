@@ -1,0 +1,364 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <Configurations>Debug;Release;Debug Main</Configurations>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot/Content\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Content\Site.css" />
+    <None Remove="Content\Site.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\Site.scss" />
+    <Content Include="node_modules\%40types\bootstrap\package.json" />
+    <Content Include="node_modules\%40types\core-js\package.json" />
+    <Content Include="node_modules\%40types\jquery\package.json" />
+    <Content Include="node_modules\%40types\react-dom\package.json" />
+    <Content Include="node_modules\%40types\react-intl\package.json" />
+    <Content Include="node_modules\%40types\react-select\package.json" />
+    <Content Include="node_modules\%40types\react\package.json" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="node_modules\bootstrap\grunt\configBridge.json" />
+    <Content Include="node_modules\bootstrap\grunt\npm-shrinkwrap.json" />
+    <Content Include="node_modules\bootstrap\package.json" />
+    <Content Include="node_modules\font-awesome\css\font-awesome.css" />
+    <Content Include="node_modules\font-awesome\css\font-awesome.min.css" />
+    <Content Include="node_modules\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="node_modules\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="node_modules\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="node_modules\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="node_modules\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="node_modules\font-awesome\package.json" />
+    <Content Include="node_modules\react-select\.publish\example.css" />
+    <Content Include="node_modules\react-select\.publish\index.html" />
+    <Content Include="node_modules\react-select\.publish\standalone.html" />
+    <Content Include="node_modules\react-select\dist\react-select.css" />
+    <Content Include="node_modules\react-select\dist\react-select.min.css" />
+    <Content Include="node_modules\react-select\examples\src\favicon.ico" />
+    <Content Include="node_modules\react-select\examples\src\index.html" />
+    <Content Include="node_modules\react-select\examples\src\standalone.html" />
+    <Content Include="node_modules\react-select\package.json" />
+    <Content Include="wwwroot\.well-known\acme-challenge\9L9Rwr6-LqJL3beZBVlZdddTn9tBKJ-mGWKcUg3kR2M">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="10.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0-preview2-final" />
+    <PackageReference Include="Microsoft.AspNetCore.Proxy" Version="0.2.0" />
+    <PackageReference Include="React.AspNet" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Https" Version="2.0.0-preview2-final" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MemoryCore\MemoryCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="node_modules\%40types\bootstrap\index.d.ts" />
+    <None Include="node_modules\%40types\bootstrap\LICENSE" />
+    <None Include="node_modules\%40types\bootstrap\README.md" />
+    <None Include="node_modules\%40types\core-js\index.d.ts" />
+    <None Include="node_modules\%40types\core-js\LICENSE" />
+    <None Include="node_modules\%40types\core-js\README.md" />
+    <None Include="node_modules\%40types\jquery\index.d.ts" />
+    <None Include="node_modules\%40types\jquery\LICENSE" />
+    <None Include="node_modules\%40types\jquery\README.md" />
+    <None Include="node_modules\%40types\react-dom\index.d.ts" />
+    <None Include="node_modules\%40types\react-dom\LICENSE" />
+    <None Include="node_modules\%40types\react-dom\README.md" />
+    <None Include="node_modules\%40types\react-dom\server\index.d.ts" />
+    <None Include="node_modules\%40types\react-dom\test-utils\index.d.ts" />
+    <None Include="node_modules\%40types\react-intl\index.d.ts" />
+    <None Include="node_modules\%40types\react-intl\LICENSE" />
+    <None Include="node_modules\%40types\react-intl\README.md" />
+    <None Include="node_modules\%40types\react-select\LICENSE" />
+    <None Include="node_modules\%40types\react-select\README.md" />
+    <None Include="node_modules\%40types\react\index.d.ts" />
+    <None Include="node_modules\%40types\react\LICENSE" />
+    <None Include="node_modules\%40types\react\README.md" />
+    <None Include="node_modules\bootstrap\CHANGELOG.md" />
+    <None Include="node_modules\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="node_modules\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="node_modules\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="node_modules\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="node_modules\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="node_modules\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="node_modules\bootstrap\dist\js\bootstrap.js" />
+    <None Include="node_modules\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="node_modules\bootstrap\Gruntfile.js" />
+    <None Include="node_modules\bootstrap\grunt\change-version.js" />
+    <None Include="node_modules\bootstrap\grunt\gcp-key.json.enc" />
+    <None Include="node_modules\bootstrap\grunt\postcss.js" />
+    <None Include="node_modules\bootstrap\grunt\sauce_browsers.yml" />
+    <None Include="node_modules\bootstrap\grunt\upload-preview.sh" />
+    <None Include="node_modules\bootstrap\js\dist\alert.js" />
+    <None Include="node_modules\bootstrap\js\dist\button.js" />
+    <None Include="node_modules\bootstrap\js\dist\carousel.js" />
+    <None Include="node_modules\bootstrap\js\dist\collapse.js" />
+    <None Include="node_modules\bootstrap\js\dist\dropdown.js" />
+    <None Include="node_modules\bootstrap\js\dist\modal.js" />
+    <None Include="node_modules\bootstrap\js\dist\popover.js" />
+    <None Include="node_modules\bootstrap\js\dist\scrollspy.js" />
+    <None Include="node_modules\bootstrap\js\dist\tab.js" />
+    <None Include="node_modules\bootstrap\js\dist\tooltip.js" />
+    <None Include="node_modules\bootstrap\js\dist\util.js" />
+    <None Include="node_modules\bootstrap\js\src\alert.js" />
+    <None Include="node_modules\bootstrap\js\src\button.js" />
+    <None Include="node_modules\bootstrap\js\src\carousel.js" />
+    <None Include="node_modules\bootstrap\js\src\collapse.js" />
+    <None Include="node_modules\bootstrap\js\src\dropdown.js" />
+    <None Include="node_modules\bootstrap\js\src\modal.js" />
+    <None Include="node_modules\bootstrap\js\src\popover.js" />
+    <None Include="node_modules\bootstrap\js\src\scrollspy.js" />
+    <None Include="node_modules\bootstrap\js\src\tab.js" />
+    <None Include="node_modules\bootstrap\js\src\tooltip.js" />
+    <None Include="node_modules\bootstrap\js\src\util.js" />
+    <None Include="node_modules\bootstrap\js\tests\README.md" />
+    <None Include="node_modules\bootstrap\js\tests\unit\alert.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\button.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\carousel.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\collapse.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\dropdown.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\modal.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\phantom.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\popover.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\scrollspy.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\tab.js" />
+    <None Include="node_modules\bootstrap\js\tests\unit\tooltip.js" />
+    <None Include="node_modules\bootstrap\js\tests\vendor\qunit.js" />
+    <None Include="node_modules\bootstrap\LICENSE" />
+    <None Include="node_modules\bootstrap\README.md" />
+    <None Include="node_modules\bootstrap\scss\bootstrap-grid.scss" />
+    <None Include="node_modules\bootstrap\scss\bootstrap-reboot.scss" />
+    <None Include="node_modules\bootstrap\scss\bootstrap.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_alert.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_background-variant.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_badge.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_border-radius.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_breakpoints.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_buttons.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_cards.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_clearfix.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_float.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_forms.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_gradients.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_grid-framework.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_grid.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_hover.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_image.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_list-group.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_lists.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_nav-divider.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_navbar-align.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_pagination.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_reset-text.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_resize.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_screen-reader.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_size.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_table-row.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_text-hide.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_text-truncate.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_transforms.scss" />
+    <None Include="node_modules\bootstrap\scss\mixins\_visibility.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_align.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_background.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_borders.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_clearfix.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_display.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_flex.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_float.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_position.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_screenreaders.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_sizing.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_spacing.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_text.scss" />
+    <None Include="node_modules\bootstrap\scss\utilities\_visibility.scss" />
+    <None Include="node_modules\bootstrap\scss\_alert.scss" />
+    <None Include="node_modules\bootstrap\scss\_badge.scss" />
+    <None Include="node_modules\bootstrap\scss\_breadcrumb.scss" />
+    <None Include="node_modules\bootstrap\scss\_button-group.scss" />
+    <None Include="node_modules\bootstrap\scss\_buttons.scss" />
+    <None Include="node_modules\bootstrap\scss\_card.scss" />
+    <None Include="node_modules\bootstrap\scss\_carousel.scss" />
+    <None Include="node_modules\bootstrap\scss\_close.scss" />
+    <None Include="node_modules\bootstrap\scss\_code.scss" />
+    <None Include="node_modules\bootstrap\scss\_custom-forms.scss" />
+    <None Include="node_modules\bootstrap\scss\_custom.scss" />
+    <None Include="node_modules\bootstrap\scss\_dropdown.scss" />
+    <None Include="node_modules\bootstrap\scss\_forms.scss" />
+    <None Include="node_modules\bootstrap\scss\_grid.scss" />
+    <None Include="node_modules\bootstrap\scss\_images.scss" />
+    <None Include="node_modules\bootstrap\scss\_input-group.scss" />
+    <None Include="node_modules\bootstrap\scss\_jumbotron.scss" />
+    <None Include="node_modules\bootstrap\scss\_list-group.scss" />
+    <None Include="node_modules\bootstrap\scss\_media.scss" />
+    <None Include="node_modules\bootstrap\scss\_mixins.scss" />
+    <None Include="node_modules\bootstrap\scss\_modal.scss" />
+    <None Include="node_modules\bootstrap\scss\_nav.scss" />
+    <None Include="node_modules\bootstrap\scss\_navbar.scss" />
+    <None Include="node_modules\bootstrap\scss\_normalize.scss" />
+    <None Include="node_modules\bootstrap\scss\_pagination.scss" />
+    <None Include="node_modules\bootstrap\scss\_popover.scss" />
+    <None Include="node_modules\bootstrap\scss\_print.scss" />
+    <None Include="node_modules\bootstrap\scss\_progress.scss" />
+    <None Include="node_modules\bootstrap\scss\_reboot.scss" />
+    <None Include="node_modules\bootstrap\scss\_responsive-embed.scss" />
+    <None Include="node_modules\bootstrap\scss\_tables.scss" />
+    <None Include="node_modules\bootstrap\scss\_tooltip.scss" />
+    <None Include="node_modules\bootstrap\scss\_transitions.scss" />
+    <None Include="node_modules\bootstrap\scss\_type.scss" />
+    <None Include="node_modules\bootstrap\scss\_utilities.scss" />
+    <None Include="node_modules\bootstrap\scss\_variables.scss" />
+    <None Include="node_modules\font-awesome\.npmignore" />
+    <None Include="node_modules\font-awesome\css\font-awesome.css.map" />
+    <None Include="node_modules\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="node_modules\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="node_modules\font-awesome\less\animated.less" />
+    <None Include="node_modules\font-awesome\less\bordered-pulled.less" />
+    <None Include="node_modules\font-awesome\less\core.less" />
+    <None Include="node_modules\font-awesome\less\fixed-width.less" />
+    <None Include="node_modules\font-awesome\less\font-awesome.less" />
+    <None Include="node_modules\font-awesome\less\icons.less" />
+    <None Include="node_modules\font-awesome\less\larger.less" />
+    <None Include="node_modules\font-awesome\less\list.less" />
+    <None Include="node_modules\font-awesome\less\mixins.less" />
+    <None Include="node_modules\font-awesome\less\path.less" />
+    <None Include="node_modules\font-awesome\less\rotated-flipped.less" />
+    <None Include="node_modules\font-awesome\less\screen-reader.less" />
+    <None Include="node_modules\font-awesome\less\stacked.less" />
+    <None Include="node_modules\font-awesome\less\variables.less" />
+    <None Include="node_modules\font-awesome\README.md" />
+    <None Include="node_modules\font-awesome\scss\font-awesome.scss" />
+    <None Include="node_modules\font-awesome\scss\_animated.scss" />
+    <None Include="node_modules\font-awesome\scss\_bordered-pulled.scss" />
+    <None Include="node_modules\font-awesome\scss\_core.scss" />
+    <None Include="node_modules\font-awesome\scss\_fixed-width.scss" />
+    <None Include="node_modules\font-awesome\scss\_icons.scss" />
+    <None Include="node_modules\font-awesome\scss\_larger.scss" />
+    <None Include="node_modules\font-awesome\scss\_list.scss" />
+    <None Include="node_modules\font-awesome\scss\_mixins.scss" />
+    <None Include="node_modules\font-awesome\scss\_path.scss" />
+    <None Include="node_modules\font-awesome\scss\_rotated-flipped.scss" />
+    <None Include="node_modules\font-awesome\scss\_screen-reader.scss" />
+    <None Include="node_modules\font-awesome\scss\_stacked.scss" />
+    <None Include="node_modules\font-awesome\scss\_variables.scss" />
+    <None Include="node_modules\react-select\.coveralls.yml" />
+    <None Include="node_modules\react-select\.eslintignore" />
+    <None Include="node_modules\react-select\.eslintrc" />
+    <None Include="node_modules\react-select\.npmignore" />
+    <None Include="node_modules\react-select\.publish\app.js" />
+    <None Include="node_modules\react-select\.publish\bundle.js" />
+    <None Include="node_modules\react-select\.publish\common.js" />
+    <None Include="node_modules\react-select\.publish\standalone.js" />
+    <None Include="node_modules\react-select\.travis.yml" />
+    <None Include="node_modules\react-select\CHANGES.md" />
+    <None Include="node_modules\react-select\CONTRIBUTING.md" />
+    <None Include="node_modules\react-select\dist\react-select.js" />
+    <None Include="node_modules\react-select\dist\react-select.min.js" />
+    <None Include="node_modules\react-select\examples\src\.npmignore" />
+    <None Include="node_modules\react-select\examples\src\app.js" />
+    <None Include="node_modules\react-select\examples\src\components\BooleanSelect.js" />
+    <None Include="node_modules\react-select\examples\src\components\Contributors.js" />
+    <None Include="node_modules\react-select\examples\src\components\Creatable.js" />
+    <None Include="node_modules\react-select\examples\src\components\CustomComponents.js" />
+    <None Include="node_modules\react-select\examples\src\components\CustomRender.js" />
+    <None Include="node_modules\react-select\examples\src\components\GithubUsers.js" />
+    <None Include="node_modules\react-select\examples\src\components\Multiselect.js" />
+    <None Include="node_modules\react-select\examples\src\components\NumericSelect.js" />
+    <None Include="node_modules\react-select\examples\src\components\States.js" />
+    <None Include="node_modules\react-select\examples\src\components\Virtualized.js" />
+    <None Include="node_modules\react-select\examples\src\data\cities.js" />
+    <None Include="node_modules\react-select\examples\src\data\contributors.js" />
+    <None Include="node_modules\react-select\examples\src\data\states.js" />
+    <None Include="node_modules\react-select\examples\src\data\users.js" />
+    <None Include="node_modules\react-select\examples\src\example.less" />
+    <None Include="node_modules\react-select\gulpfile.js" />
+    <None Include="node_modules\react-select\HISTORY.md" />
+    <None Include="node_modules\react-select\ISSUE_TEMPLATE.md" />
+    <None Include="node_modules\react-select\less\control.less" />
+    <None Include="node_modules\react-select\less\default.less" />
+    <None Include="node_modules\react-select\less\menu.less" />
+    <None Include="node_modules\react-select\less\mixins.less" />
+    <None Include="node_modules\react-select\less\multi.less" />
+    <None Include="node_modules\react-select\less\select.less" />
+    <None Include="node_modules\react-select\less\spinner.less" />
+    <None Include="node_modules\react-select\lib\Async.js" />
+    <None Include="node_modules\react-select\lib\AsyncCreatable.js" />
+    <None Include="node_modules\react-select\lib\Creatable.js" />
+    <None Include="node_modules\react-select\lib\Option.js" />
+    <None Include="node_modules\react-select\lib\Select.js" />
+    <None Include="node_modules\react-select\lib\utils\defaultArrowRenderer.js" />
+    <None Include="node_modules\react-select\lib\utils\defaultFilterOptions.js" />
+    <None Include="node_modules\react-select\lib\utils\defaultMenuRenderer.js" />
+    <None Include="node_modules\react-select\lib\utils\stripDiacritics.js" />
+    <None Include="node_modules\react-select\lib\Value.js" />
+    <None Include="node_modules\react-select\LICENSE" />
+    <None Include="node_modules\react-select\README.md" />
+    <None Include="node_modules\react-select\scss\components.scss" />
+    <None Include="node_modules\react-select\scss\control.scss" />
+    <None Include="node_modules\react-select\scss\default.scss" />
+    <None Include="node_modules\react-select\scss\menu.scss" />
+    <None Include="node_modules\react-select\scss\mixins.scss" />
+    <None Include="node_modules\react-select\scss\multi.scss" />
+    <None Include="node_modules\react-select\scss\select.scss" />
+    <None Include="node_modules\react-select\scss\spinner.scss" />
+    <None Include="node_modules\react-select\src\Async.js" />
+    <None Include="node_modules\react-select\src\AsyncCreatable.js" />
+    <None Include="node_modules\react-select\src\Creatable.js" />
+    <None Include="node_modules\react-select\src\Option.js" />
+    <None Include="node_modules\react-select\src\Select.js" />
+    <None Include="node_modules\react-select\src\utils\defaultArrowRenderer.js" />
+    <None Include="node_modules\react-select\src\utils\defaultFilterOptions.js" />
+    <None Include="node_modules\react-select\src\utils\defaultMenuRenderer.js" />
+    <None Include="node_modules\react-select\src\utils\stripDiacritics.js" />
+    <None Include="node_modules\react-select\src\Value.js" />
+    <None Include="node_modules\react-select\testHelpers\jsdomHelper.js" />
+    <None Include="node_modules\react-select\testHelpers\nodeListType.js" />
+    <None Include="node_modules\react-select\test\Async-test.js" />
+    <None Include="node_modules\react-select\test\AsyncCreatable-test.js" />
+    <None Include="node_modules\react-select\test\Creatable-test.js" />
+    <None Include="node_modules\react-select\test\Select-test.js" />
+    <None Include="node_modules\react-select\test\Value-test.js" />
+    <None Include="node_modules\react-select\TODO.md" />
+    <None Include="node_modules\react-select\wallaby.js" />
+    <None Include="wwwroot\img\bg-pattern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="k8s\canary\" />
+    <Folder Include="wwwroot\lang\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="node_modules\%40types\react-select\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

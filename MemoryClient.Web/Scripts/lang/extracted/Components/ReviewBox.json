@@ -1,0 +1,10 @@
+[
+  {
+    "id": "solutionButton",
+    "defaultMessage": "Show Solution"
+  },
+  {
+    "id": "reviewModalTitle",
+    "defaultMessage": "Review"
+  }
+]
