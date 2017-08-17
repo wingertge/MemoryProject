@@ -24,6 +24,8 @@ spec:
                   key: connectionString
             - name: ASPNETCORE_ENVIRONMENT
               value: Development
+            - name: ASPNETCORE_PORT
+              value: "5000"
           ports:
             - containerPort: 5000
               name: memoryserver
