@@ -20,7 +20,7 @@ spec:
             - name: ASPNETCORE_ENVIRONMENT
               value: Development
             - name: ApiHost
-              value: api
+              value: api.master
             - name: ApiPort
               value: "5000"
             - name: ApiProtocol
