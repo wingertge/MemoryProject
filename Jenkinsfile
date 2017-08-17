@@ -13,7 +13,7 @@ node {
 
   stage('Webpack') {
 	dir('MemoryClient.Web') {
-	  retry(5) {
+	  retry(10) {
 	    bat('npm install')
 	  }
 	  bat("webpack")
