@@ -2,6 +2,7 @@
 cd sln
 set -e
 dotnet restore MemoryProject.sln
+echo "test"
 rm -rf $(pwd)/publish/api
 rm -rf $(pwd)/publish/web
 echo "test"
