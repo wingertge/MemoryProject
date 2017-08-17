@@ -1,5 +1,14 @@
 pipeline {
   agent any
+
+  environment {
+      project = 'plenary-vim-176019'
+      imageTagBase = "eu.gcr.io/${project}"
+      entryName = "build.${BRANCH_NAME}.sh"
+      imageTagApi = "$imageTagBase/api:${BRANCH_NAME}.${BUILD_ID}"
+      imageTagWeb = "$imageTagBase/web:${BRANCH_NAME}.${BUILD_ID}"
+  }
+
   stages {
     stage('NPM Install') {
       steps {
@@ -28,46 +37,20 @@ pipeline {
         bat(script: 'docker-compose -f docker-compose.ci.build.yml up', returnStatus: true, returnStdout: true)
       }
     }
-    stage('Package') {
+    stage('Deploy') {
       steps {
         parallel(
-          "Package API": {
-            bat(script: 'docker build publish/api -t %imageTagApi%', returnStatus: true, returnStdout: true)
-            
-          },
-          "Package Web": {
-            bat(script: 'docker build publish/web -t ${imageTagWeb}', returnStatus: true, returnStdout: true)
-            
-          }
-        )
-      }
-    }
-    stage('Publish') {
-      steps {
-        parallel(
-          "Publish API": {
+          "Deploy API": {
+            bat(script: 'docker build MemoryServer/obj/Docker/publish -t $imageTagApi', returnStatus: true, returnStdout: true)
             bat(script: 'gcloud docker -- push ${imageTagApi}', returnStatus: true, returnStdout: true)
-            
-          },
-          "Publish Web": {
-            bat(script: 'gcloud docker -- push ${imageTagWeb}', returnStatus: true, returnStdout: true)
-            
-          }
-        )
-      }
-    }
-    stage('Update Cluster') {
-      steps {
-        parallel(
-          "Update Cluster": {
-            bat(script: 'sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#\" ./MemoryServer/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
+			bat(script: 'sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#\" ./MemoryServer/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
             bat(script: 'kubectl --namespace=${BRANCH_NAME} apply -f MemoryServer/k8s/${BRANCH_NAME}/', returnStatus: true, returnStdout: true)
-            
           },
-          "Update Cluster Web": {
-            bat(script: 'sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#\" ./MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
+          "Deploy Web": {
+            bat(script: 'docker build MemoryClient.Web/obj/Docker/publish -t ${imageTagWeb}', returnStatus: true, returnStdout: true)
+            bat(script: 'gcloud docker -- push ${imageTagWeb}', returnStatus: true, returnStdout: true)
+			bat(script: 'sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#\" ./MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
             bat(script: 'kubectl --namespace=${BRANCH_NAME} apply -f MemoryClient.Web/k8s/${BRANCH_NAME}/', returnStatus: true, returnStdout: true)
-            
           }
         )
       }
