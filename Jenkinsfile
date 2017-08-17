@@ -28,8 +28,8 @@ node {
     bat("gcloud docker -- push ${imageTagApi}")
     bat("gcloud docker -- push ${imageTagWeb}")
 
-	bat("sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#\" $(pwd)/MemoryServer/k8s/${BRANCH_NAME}/*.yaml")
-	bat("sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#\" $(pwd)/MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml")
+	bat("sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#\" MemoryServer/k8s/${BRANCH_NAME}/*.yaml")
+	bat("sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#\" MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml")
     bat("kubectl --namespace=${BRANCH_NAME} apply -f MemoryServer/k8s/${BRANCH_NAME}/")
 	bat("kubectl --namespace=${BRANCH_NAME} apply -f MemoryClient.Web/k8s/${BRANCH_NAME}/")
   }
