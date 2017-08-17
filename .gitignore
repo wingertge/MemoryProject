@@ -266,3 +266,5 @@ __pycache__/
 jenkins
 certs
 nginx-ssl-proxy-master
+
+*.build.*
