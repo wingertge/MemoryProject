@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="k8s\canary\" />
-    <Folder Include="k8s\production\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
