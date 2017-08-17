@@ -38,7 +38,7 @@ pipeline {
       steps {
         parallel(
           "Deploy API": {
-		    bat("copy MemoryServer/Dockerfile MemoryServer/obj/Docker/publish/Dockerfile")
+		    bat("copy source MemoryServer/Dockerfile destination MemoryServer/obj/Docker/publish/Dockerfile")
             bat("docker build MemoryServer/obj/Docker/publish -t $imageTagApi")
             bat("gcloud docker -- push ${imageTagApi}")
             bat("sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#\" ./MemoryServer/k8s/${BRANCH_NAME}/*.yaml")
@@ -46,7 +46,7 @@ pipeline {
             
           },
           "Deploy Web": {
-		    bat("copy MemoryClient.Web/Dockerfile MemoryClient.Web/obj/Docker/publish/Dockerfile")
+		    bat("copy source MemoryClient.Web/Dockerfile destination MemoryClient.Web/obj/Docker/publish/Dockerfile")
             bat("docker build MemoryClient.Web/obj/Docker/publish -t ${imageTagWeb}")
             bat("gcloud docker -- push ${imageTagWeb}")
             bat("sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#\" ./MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml")
