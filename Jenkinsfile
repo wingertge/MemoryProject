@@ -1,21 +1,15 @@
 pipeline {
   agent any
-
-  environment {
-      project = 'plenary-vim-176019'
-      imageTagBase = "eu.gcr.io/${project}"
-      entryName = "build.${BRANCH_NAME}.sh"
-      imageTagApi = "$imageTagBase/api:${BRANCH_NAME}.${BUILD_ID}"
-      imageTagWeb = "$imageTagBase/web:${BRANCH_NAME}.${BUILD_ID}"
-  }
-
   stages {
     stage('NPM Install') {
       steps {
         parallel(
           "NPM Install": {
             retry(count: 5) {
-              bat(script: 'npm install', returnStatus: true, returnStdout: true)
+              dir(path: 'MemoryClient.Web') {
+                bat(script: 'npm install', returnStatus: true, returnStdout: true)
+              }
+              
             }
             
             
@@ -43,14 +37,16 @@ pipeline {
           "Deploy API": {
             bat(script: 'docker build MemoryServer/obj/Docker/publish -t $imageTagApi', returnStatus: true, returnStdout: true)
             bat(script: 'gcloud docker -- push ${imageTagApi}', returnStatus: true, returnStdout: true)
-			bat(script: 'sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#\" ./MemoryServer/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
+            bat(script: 'sed -i.bak "s#eu.gcr.io/plenary-vim-176019/api:1.0.0#${imageTagApi}#" ./MemoryServer/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
             bat(script: 'kubectl --namespace=${BRANCH_NAME} apply -f MemoryServer/k8s/${BRANCH_NAME}/', returnStatus: true, returnStdout: true)
+            
           },
           "Deploy Web": {
             bat(script: 'docker build MemoryClient.Web/obj/Docker/publish -t ${imageTagWeb}', returnStatus: true, returnStdout: true)
             bat(script: 'gcloud docker -- push ${imageTagWeb}', returnStatus: true, returnStdout: true)
-			bat(script: 'sed -i.bak \"s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#\" ./MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
+            bat(script: 'sed -i.bak "s#eu.gcr.io/plenary-vim-176019/web:1.0.0#${imageTagWeb}#" ./MemoryClient.Web/k8s/${BRANCH_NAME}/*.yaml', returnStatus: true, returnStdout: true)
             bat(script: 'kubectl --namespace=${BRANCH_NAME} apply -f MemoryClient.Web/k8s/${BRANCH_NAME}/', returnStatus: true, returnStdout: true)
+            
           }
         )
       }
@@ -60,5 +56,12 @@ pipeline {
         echo 'Success!'
       }
     }
+  }
+  environment {
+    project = 'plenary-vim-176019'
+    imageTagBase = "eu.gcr.io/${project}"
+    entryName = "build.${BRANCH_NAME}.sh"
+    imageTagApi = "$imageTagBase/api:${BRANCH_NAME}.${BUILD_ID}"
+    imageTagWeb = "$imageTagBase/web:${BRANCH_NAME}.${BUILD_ID}"
   }
 }
