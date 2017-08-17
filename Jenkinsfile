@@ -19,7 +19,7 @@ node {
   }
 
   stage('Build') {
-    bat("docker run -i --rm -v \"$WORKSPACE\\:/sln\" microsoft/aspnetcore-build:2.0.0-preview2 sh ./sln/$entryName")
+    bat("docker run -t --rm -v \"$WORKSPACE\\:/sln\" microsoft/aspnetcore-build:2.0.0-preview2 sh ./sln/$entryName")
   }
 
   stage('Deploy') {
