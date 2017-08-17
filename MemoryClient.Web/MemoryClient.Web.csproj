@@ -63,9 +63,6 @@
     <Content Include="node_modules\react-select\examples\src\index.html" />
     <Content Include="node_modules\react-select\examples\src\standalone.html" />
     <Content Include="node_modules\react-select\package.json" />
-    <Content Include="wwwroot\.well-known\acme-challenge\9L9Rwr6-LqJL3beZBVlZdddTn9tBKJ-mGWKcUg3kR2M">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="10.2.1" />

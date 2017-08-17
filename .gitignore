@@ -268,3 +268,5 @@ certs
 nginx-ssl-proxy-master
 
 *.build.*
+report.html
+dist
