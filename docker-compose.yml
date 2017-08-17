@@ -1,9 +1,14 @@
 version: '3'
 
 services:
-  memoryproject:
-    image: microsoft/aspnetcore-build:2.0.0-preview2
-    volumes:
-      - .:/sln
-    working_dir: /sln
-    entrypoint: ["sh", "./build.sh"]
+  memoryclient.web:
+    image: memoryclient.web
+    build:
+      context: ./MemoryClient.Web
+      dockerfile: Dockerfile
+
+  memoryserver:
+    image: memoryserver
+    build:
+      context: ./MemoryServer
+      dockerfile: Dockerfile

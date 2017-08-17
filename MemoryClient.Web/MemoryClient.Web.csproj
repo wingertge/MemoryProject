@@ -349,10 +349,5 @@
   <ItemGroup>
     <TypeScriptCompile Include="node_modules\%40types\react-select\index.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="Dockerfile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 
 </Project>

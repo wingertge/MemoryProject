@@ -1,18 +1,14 @@
 version: '3'
 
 services:
-  memoryserver:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "5000"
   memoryclient.web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
-networks:
-  default:
-    external:
-      name: nat
 
+  memoryserver:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
