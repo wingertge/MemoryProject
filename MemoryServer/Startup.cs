@@ -115,7 +115,7 @@ namespace MemoryServer
 
             app.UseAuthentication();
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
         }
     }
 }
