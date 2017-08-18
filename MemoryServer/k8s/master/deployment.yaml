@@ -26,10 +26,10 @@ spec:
               value: Development
             - name: ASPNETCORE_PORT
               value: "5000"
-			- name: useCloudStorage
-			  value: true
-			- name: storageBucketName
-			  value: memoryproject-reviews-master
+            - name: useCloudStorage
+              value: true
+            - name: storageBucketName
+              value: memoryproject-reviews-master
           ports:
             - containerPort: 5000
               name: memoryserver
