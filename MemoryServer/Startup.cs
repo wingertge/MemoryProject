@@ -38,8 +38,7 @@ namespace MemoryServer
                     options.EnableSensitiveDataLogging();
                 });
 
-            services.AddIdentityCore<User>(o => { })
-                .AddRoles<IdentityRole<Guid>>()
+            services.AddIdentity<User, DummyRole>()
                 .AddEntityFrameworkStores<MemoryContext>()
                 .AddDefaultTokenProviders();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

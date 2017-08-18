@@ -1,13 +1,11 @@
 ﻿using System;
 using MemoryCore.DbModels;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MemoryServer.Core.Database
 {
-    public class MemoryContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
+    public class MemoryContext : IdentityDbContext<User, DummyRole, Guid>
     {
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<LessonAssignment> Assignments { get; set; }
