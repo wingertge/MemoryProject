@@ -7,6 +7,7 @@ using MemoryServer.Core.Database;
 using MemoryServer.Core.Database.Impl;
 using MemoryServer.Core.Database.Repositories;
 using MemoryServer.Core.Database.Repositories.Impl;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -37,9 +38,12 @@ namespace MemoryServer
                     options.EnableSensitiveDataLogging();
                 });
 
-            services.AddIdentity<User, DummyRole>()
+            services.AddIdentityCore<User>(o => { })
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<MemoryContext>()
                 .AddDefaultTokenProviders();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(o => o.LoginPath = "/login");
 
             /** Other **/
             services.AddSingleton<IScheduler, BasicScheduler>();
