@@ -31,7 +31,11 @@ namespace MemoryServer
         {
             services.Configure<Config>(Configuration.Bind);
             services.AddDbContextPool<MemoryContext>(
-                options => options.UseNpgsql(Configuration["database"], b => b.MigrationsAssembly("MemoryServer")));
+                options =>
+                {
+                    options.UseNpgsql(Configuration["database"], b => b.MigrationsAssembly("MemoryServer"));
+                    options.EnableSensitiveDataLogging();
+                });
 
             services.AddIdentity<User, DummyRole>()
                 .AddEntityFrameworkStores<MemoryContext>()

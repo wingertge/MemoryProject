@@ -58,12 +58,6 @@ namespace MemoryServer.Core.Database
                 .HasForeignKey(a => a.TagId);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder builder)
-        {
-            base.OnConfiguring(builder);
-            builder.EnableSensitiveDataLogging();
-        }
-
         [DbFunction(Schema = "dbo")]
         public static int Levenshtein(string s1, string s2, int max) { throw new NotImplementedException(); }
     }
