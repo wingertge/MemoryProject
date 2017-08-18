@@ -33,7 +33,7 @@ namespace MemoryServer
             services.AddDbContextPool<MemoryContext>(
                 options => options.UseNpgsql(Configuration["database"], b => b.MigrationsAssembly("MemoryServer")));
 
-            services.AddIdentity<User, IdentityRole<Guid>>()
+            services.AddIdentity<User, DummyRole>()
                 .AddEntityFrameworkStores<MemoryContext>()
                 .AddDefaultTokenProviders();
 
