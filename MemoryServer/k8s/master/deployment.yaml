@@ -27,7 +27,7 @@ spec:
             - name: ASPNETCORE_PORT
               value: "5000"
             - name: useCloudStorage
-              value: true
+              value: "true"
             - name: storageBucketName
               value: memoryproject-reviews-master
           ports:
@@ -47,7 +47,7 @@ spec:
           volumeMounts:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql
-              readOnly: "true"
+              readOnly: true
             - name: cloudsql
               mountPath: /cloudsql
         # [END proxy_container]
