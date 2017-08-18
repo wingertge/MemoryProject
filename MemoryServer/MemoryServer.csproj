@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RuntimeIdentifiers></RuntimeIdentifiers>
+    <RuntimeIdentifiers>ubuntu.16.10-x64</RuntimeIdentifiers>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <Configurations>Debug;Release;Debug Main</Configurations>
     <UserSecretsId>73bdbf11-c476-47a7-9beb-73bf0dafcfa7</UserSecretsId>
