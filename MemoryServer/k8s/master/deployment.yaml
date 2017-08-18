@@ -47,7 +47,7 @@ spec:
           volumeMounts:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql
-              readOnly: true
+              readOnly: "true"
             - name: cloudsql
               mountPath: /cloudsql
         # [END proxy_container]
