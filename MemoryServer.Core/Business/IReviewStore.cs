@@ -10,15 +10,15 @@ namespace MemoryServer.Core.Business
     public interface IReviewStore
     {
         Task<bool> DoesUserExist(User user);
-        Task<CardContext> GetUserHand(User user);
-        Task InitaliseUserHand(User user, CardContext hand);
+        Task<ReviewCardContext> GetUserHand(User user);
+        Task InitaliseUserHand(User user, ReviewCardContext hand);
         Task AddUserCard(User user, CardEntry card);
         Task DiscardUserCard(User user, CardEntry card);
         Task<List<CardEntry>> CleanAssignmentSet(User user, LessonAssignment assignment);
         Task MarkCardIncorrect(User user, CardEntry card);
     }
 
-    public class CardContext
+    public class ReviewCardContext
     {
         public HashSet<CardEntry> Hand { get; set; } = new HashSet<CardEntry>();
         public HashSet<CardEntry> DiscardPile { get; set; } = new HashSet<CardEntry>();

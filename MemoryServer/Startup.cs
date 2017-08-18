@@ -1,4 +1,5 @@
 ﻿using System;
+using Google.Apis.Auth.OAuth2;
 using MemoryCore.DbModels;
 using MemoryServer.Core.Business;
 using MemoryServer.Core.Business.Impl;
@@ -56,12 +57,24 @@ namespace MemoryServer
             services.AddScoped<IReviewService, ReviewService>();
             services.AddScoped<IThemeService, ThemeService>();
 
-            services.AddDistributedRedisCache(options =>
+            if (Configuration["useCloudStorage"] == "true")
             {
-                options.Configuration = Configuration["redisHost"];
-                options.InstanceName = "ReviewStore";
-            });
-            
+                services.UseGoogleCloudStorage(options =>
+                {
+                    options.BucketName = Configuration["storageBucketName"];
+                    options.ProjectName = Configuration["projectId"];
+                    options.Credentials = GoogleCredential.GetApplicationDefault();
+                });
+            }
+            else
+            {
+                services.AddDistributedRedisCache(options =>
+                {
+                    options.Configuration = Configuration["redisHost"];
+                    options.InstanceName = "ReviewStore";
+                });
+            }
+
             // Add framework services.
             services.AddMvc();
 

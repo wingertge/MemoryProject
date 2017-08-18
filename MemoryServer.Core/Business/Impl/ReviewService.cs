@@ -35,7 +35,7 @@ namespace MemoryServer.Core.Business.Impl
         private async Task InitialiseHand(User user, int count)
         {
             var assignments = await _reviewRepository.GetOldestReviews(user, count);
-            var context = new CardContext();
+            var context = new ReviewCardContext();
             assignments.ForEach(a =>
             {
                 context.Add(new CardEntry { Assignment = a, FromField = ReviewField.Reading, ToField = ReviewField.Meaning });

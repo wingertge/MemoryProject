@@ -23,12 +23,12 @@ namespace MemoryServer.Core.Business.Impl
             return (await _cache.GetAsync(GetKey(user))) != null;
         }
 
-        public Task<CardContext> GetUserHand(User user)
+        public Task<ReviewCardContext> GetUserHand(User user)
         {
             return GetCards(user);
         }
 
-        public async Task InitaliseUserHand(User user, CardContext hand)
+        public async Task InitaliseUserHand(User user, ReviewCardContext hand)
         {
             await SetCards(user, hand);
         }
@@ -65,15 +65,15 @@ namespace MemoryServer.Core.Business.Impl
             return cards;
         }
 
-        private async Task<CardContext> GetCards(User user)
+        private async Task<ReviewCardContext> GetCards(User user)
         {
             var currentHandJson = await _cache.GetStringAsync(GetKey(user));
-            return JsonConvert.DeserializeObject<CardContext>(currentHandJson);
+            return JsonConvert.DeserializeObject<ReviewCardContext>(currentHandJson);
         }
 
-        private async Task SetCards(User user, CardContext cards)
+        private async Task SetCards(User user, ReviewCardContext reviewCards)
         {
-            await _cache.SetStringAsync(GetKey(user), JsonConvert.SerializeObject(cards));
+            await _cache.SetStringAsync(GetKey(user), JsonConvert.SerializeObject(reviewCards));
         }
     }
 }

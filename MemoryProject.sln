@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A306A834-398A-46E6-A453-F1CA35763FA6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryServer.Tests", "..\MemoryServer.Tests\MemoryServer.Tests.csproj", "{EC597527-8148-4BCC-AAE4-0CE12CF6AA0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{A306A834-398A-46E6-A453-F1CA35763FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A306A834-398A-46E6-A453-F1CA35763FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A306A834-398A-46E6-A453-F1CA35763FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC597527-8148-4BCC-AAE4-0CE12CF6AA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC597527-8148-4BCC-AAE4-0CE12CF6AA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC597527-8148-4BCC-AAE4-0CE12CF6AA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC597527-8148-4BCC-AAE4-0CE12CF6AA0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

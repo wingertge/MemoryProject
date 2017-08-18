@@ -86,7 +86,7 @@ namespace MemoryServer.Core.Business.Impl
         private async Task InitialiseHand(User user)
         {
             var assignments = await _assignmentRepository.GetPendingLessonsAsync(user);
-            var context = new CardContext();
+            var context = new ReviewCardContext();
             assignments.ForEach(a =>
             {
                 context.Add(new CardEntry { Assignment = a, FromField = ReviewField.Reading, ToField = ReviewField.Meaning });
