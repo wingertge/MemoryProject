@@ -20,14 +20,12 @@ namespace MemoryServer.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger _logger;
-        private readonly IStringLocalizer _localizer;
 
-        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AuthController> logger, IStringLocalizer<AuthController> localizer)
+        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AuthController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            _localizer = localizer;
         }
 
         [HttpPost("login"), AllowAnonymous]
@@ -62,7 +60,7 @@ namespace MemoryServer.Controllers
                 var user = await _userManager.FindByEmailAsync(username);
                 if (user == null)
                 {
-                    ModelState.AddModelError("", _localizer["InvalidCredentials"]);
+                    ModelState.AddModelError("", "Invalid credentials.");
                     return Json(new ActionResult
                     {
                         Succeeded = false,
@@ -85,17 +83,17 @@ namespace MemoryServer.Controllers
             if (result.RequiresTwoFactor)
             {
                 actionResult.ErrorCode = (int)ErrorCodes.RequiresTwoFactor;
-                actionResult.Error = _localizer["TwoFactor"];
+                actionResult.Error = "Requires two factor authentication";
                 return Json(actionResult);
             }
             if (result.IsLockedOut)
             {
                 _logger.LogWarning((int) ErrorCodes.LockedOut, "User account locked out.");
-                actionResult.Error = _localizer["LockedOut"];
+                actionResult.Error = "You are locked out.";
                 actionResult.ErrorCode = (int) ErrorCodes.LockedOut;
                 return Json(actionResult);
             }
-            actionResult.Error = _localizer["InvalidCredentials"];
+            actionResult.Error = "Invalid credentials";
             actionResult.ErrorCode = (int) ErrorCodes.InvalidCredentials;
             return Json(actionResult);
         }
