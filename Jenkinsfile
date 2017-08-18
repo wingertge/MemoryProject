@@ -15,7 +15,7 @@ pipeline {
             
           },
           "Connect to Cluster": {
-            bat("gcloud container clusters get-credentials memoryproject-dev --zone europe-west1-c --project plenary-vim-176019")
+            bat("gcloud container clusters get-credentials memoryproject --zone europe-west1-c --project plenary-vim-176019")
             
           }
         )
