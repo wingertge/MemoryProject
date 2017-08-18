@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RuntimeIdentifiers></RuntimeIdentifiers>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <Configurations>Debug;Release;Debug Main</Configurations>
     <UserSecretsId>73bdbf11-c476-47a7-9beb-73bf0dafcfa7</UserSecretsId>
@@ -23,6 +24,7 @@
     <PackageReference Include="CloudStorage.Wrapper" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
