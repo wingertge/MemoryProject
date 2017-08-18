@@ -59,7 +59,7 @@ namespace MemoryServer
 
             if (Configuration["useCloudStorage"] == "true")
             {
-                services.UseGoogleCloudStorage(options =>
+                services.AddDistributedCloudStorageCache(options =>
                 {
                     options.BucketName = Configuration["storageBucketName"];
                     options.ProjectName = Configuration["projectId"];
