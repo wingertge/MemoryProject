@@ -57,6 +57,6 @@ namespace MemoryServer.Core.Database
         }
 
         [DbFunction(Schema = "dbo")]
-        public static int Levenshtein(string s1, string s2, int max) { throw new NotImplementedException(); }
+        public static int Levenshtein(string s1, string s2) { throw new NotImplementedException(); }
     }
 }

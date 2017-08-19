@@ -23,7 +23,7 @@ namespace MemoryServer.Core.Business.Impl
                 var store = setSelector(context);
                 var subSet = conditonals.Aggregate<Expression<Func<TModel, bool>>, IQueryable<TModel>>(store, (current, conditonal) => current.Where(conditonal));
                 var selectedValues = subSet.Select(fieldSelector);
-                return selectedValues.OrderBy(a => MemoryContext.Levenshtein(a, query, 4000)).Take(5).ToListAsync();
+                return selectedValues.OrderBy(a => MemoryContext.Levenshtein(a, query)).Take(5).ToListAsync();
             }).Run();
         }
     }

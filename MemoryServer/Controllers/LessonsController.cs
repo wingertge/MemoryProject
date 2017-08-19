@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using MemoryCore;
 using MemoryCore.DbModels;
 using MemoryCore.Models;
@@ -38,7 +39,7 @@ namespace MemoryServer.Controllers
         }
 
         [HttpPost("put")]
-        public async Task<ActionResult> Put([FromBody]LessonsEditorModel model)
+        public async Task<ActionResult> Put([NotNull] [FromBody]LessonsEditorModel model)
         {
             var user = await _userManager.GetUserAsync(User);
             var result = await _lessonService.CreateOrEditAssignment(model.LanguageFromId, model.LanguageToId, model.Reading, model.Pronunciation, model.Meaning, user, model.Id);
@@ -89,7 +90,7 @@ namespace MemoryServer.Controllers
                 default:
                     throw new ArgumentOutOfRangeException(nameof(field), field, null);
             }
-            return Json(new JsonResult<List<string>>(result));
+            return Json(new JsonResult<List<string>>(result ?? new List<string>()));
         }
     }
 }
