@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using JetBrains.Annotations;
 using MemoryCore.DbModels;
 using MemoryCore.Models;
 using MemoryServer.Core.Business.Util;
 using MemoryServer.Core.Database.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MemoryServer.Core.Business.Impl
 {
@@ -108,6 +109,7 @@ namespace MemoryServer.Core.Business.Impl
             await _reviewStore.InitaliseUserHand(user, context);
         }
 
+        [ItemCanBeNull]
         public async Task<ReviewModel> GetNextReviewAsync(User user)
         {
             var pendingReviews = await GetPendingLessonReviewCount(user);

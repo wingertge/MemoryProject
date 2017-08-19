@@ -12,7 +12,7 @@ namespace MemoryClient.Web
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup([NotNull] IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -22,7 +22,7 @@ namespace MemoryClient.Web
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
+        private IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -39,13 +39,15 @@ namespace MemoryClient.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            if(env.IsDevelopment()) //using nginx in production
-            app.MapWhen(IsApiCall, builder => builder.RunProxy(new ProxyOptions
+            if(Configuration["runProxy"] == "true") //using nginx in production
             {
-                Host = Configuration["ApiHost"],
-                Port = Configuration["ApiPort"],
-                Scheme = Configuration["ApiProtocol"]
-            }));
+                app.MapWhen(IsApiCall, builder => builder.RunProxy(new ProxyOptions
+                {
+                    Host = Configuration["ApiHost"],
+                    Port = Configuration["ApiPort"],
+                    Scheme = Configuration["ApiProtocol"]
+                }));
+            }
 
             app.UseStaticFiles();
 

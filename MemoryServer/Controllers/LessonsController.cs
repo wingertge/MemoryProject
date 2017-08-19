@@ -68,6 +68,13 @@ namespace MemoryServer.Controllers
             return Json(result);
         }
 
+        [HttpGet("next-review")]
+        public async Task<ActionResult> GetNextReview()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return Json(new JsonResult<ReviewModel>(await _lessonService.GetNextReviewAsync(user)));
+        }
+
         [HttpGet("editor-autocomplete")]
         public async Task<ActionResult> EditorAutocomplete([FromQuery] string query, [FromQuery] EditorFields field, [FromQuery] int langFromId, [FromQuery] int langToId)
         {
