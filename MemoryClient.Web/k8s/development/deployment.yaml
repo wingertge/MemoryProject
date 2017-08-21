@@ -25,10 +25,10 @@ spec:
               value: "5000"
             - name: ApiProtocol
               value: http
-			- name: runProxy
-			  value: "false"
-			- name: AppInsightsKey
-			  valueFrom:
-			    secretKeyRef:
-				  name: api-keys
-				  key: appinsights-web
+            - name: runProxy
+              value: "false"
+            - name: AppInsightsKey
+              valueFrom:
+                secretKeyRef:
+                  name: api-keys
+                  key: appinsights-web
