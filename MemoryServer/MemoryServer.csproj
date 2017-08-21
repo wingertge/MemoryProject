@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="k8s\.kube\schema\v1.6.8\apis\extensions\v1beta1\schema.json" />
-    <Content Include="k8s\.kube\schema\v1.6.8\api\v1\schema.json" />
+    <Compile Remove="k8s\.kube\**" />
+    <Content Remove="k8s\.kube\**" />
+    <EmbeddedResource Remove="k8s\.kube\**" />
+    <None Remove="k8s\.kube\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,11 +31,6 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="k8s\.kube\schema\v1.6.8\schema050393663" />
-    <None Include="k8s\.kube\schema\v1.6.8\schema851321442" />
   </ItemGroup>
 
   <ItemGroup>
