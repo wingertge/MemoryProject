@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using MemoryCore;
 using MemoryCore.DbModels;
 using MemoryCore.Models;
@@ -29,7 +30,7 @@ namespace MemoryServer.Controllers
         }
 
         [HttpPost("login"), AllowAnonymous]
-        public async Task<JsonResult> Login([FromBody]LoginModel model)
+        public async Task<JsonResult> Login([NotNull] [FromBody]LoginModel model)
         {
             if (model.Identifier.IndexOf('@') > -1)
             {
@@ -64,7 +65,7 @@ namespace MemoryServer.Controllers
                     return Json(new ActionResult
                     {
                         Succeeded = false,
-                        Errors = ModelState.Select(a => (ActionErrors) new ModelActionErrors(a.Key, a.Value.Errors))
+                        Errors = ModelState.SelectMany(a => a.Value.Errors.ToList().Select(b => (a.Key, b.ErrorMessage)))
                             .ToList(),
                         ErrorCode = (int) ErrorCodes.InvalidCredentials
                     });
@@ -107,7 +108,10 @@ namespace MemoryServer.Controllers
             }
             var user = new User { UserName = model.Username, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
-            var actionResult = new ActionResult { Succeeded = result.Succeeded, Errors = ModelState.Select(a => (ActionErrors)new ModelActionErrors(a.Key, a.Value.Errors)).ToList() };
+            var actionResult = new ActionResult { Succeeded = result.Succeeded,
+                Errors = ModelState.SelectMany(a => a.Value.Errors.ToList().Select(b => (a.Key, b.ErrorMessage)))
+                    .ToList()
+            };
             if (!result.Succeeded) return Json(actionResult);
             await _signInManager.SignInAsync(user, isPersistent: false);
             _logger.LogInformation((int)ErrorCodes.AccountCreated, "User created a new account with password.");

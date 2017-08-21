@@ -18,9 +18,9 @@ spec:
               name: http
           env:
             - name: ASPNETCORE_ENVIRONMENT
-              value: Production
+              value: Development
             - name: ApiHost
-              value: api.master
+              value: api.development
             - name: ApiPort
               value: "5000"
             - name: ApiProtocol

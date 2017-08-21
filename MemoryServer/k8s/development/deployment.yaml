@@ -23,9 +23,14 @@ spec:
                   name: cloudsql-db-credentials
                   key: connectionString
             - name: ASPNETCORE_ENVIRONMENT
-              value: Development
+              value: Production
             - name: ASPNETCORE_PORT
               value: "5000"
+			- name: AppInsightsKey
+			  valueFrom:
+			    secretKeyRef:
+				  name: api-keys
+				  key: appinsights-api
           ports:
             - containerPort: 5000
               name: memoryserver

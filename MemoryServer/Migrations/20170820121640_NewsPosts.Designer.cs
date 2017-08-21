@@ -12,9 +12,10 @@ using System;
 namespace MemoryServer.Migrations
 {
     [DbContext(typeof(MemoryContext))]
-    partial class MemoryContextModelSnapshot : ModelSnapshot
+    [Migration("20170820121640_NewsPosts")]
+    partial class NewsPosts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

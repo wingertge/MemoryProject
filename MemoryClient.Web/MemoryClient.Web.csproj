@@ -6,6 +6,8 @@
     <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <Configurations>Debug;Release;Debug Main</Configurations>
+    <ApplicationInsightsResourceId>/subscriptions/3a8a8cc5-9a47-4667-812d-8734e4caba86/resourcegroups/MemoryProject/providers/microsoft.insights/components/MemoryClient.Web</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/3a8a8cc5-9a47-4667-812d-8734e4caba86/resourcegroups/MemoryProject/providers/microsoft.insights/components/MemoryClient.Web</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
   
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -66,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="11.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Proxy" Version="0.2.0" />
   </ItemGroup>
@@ -349,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="node_modules\%40types\react-select\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>
