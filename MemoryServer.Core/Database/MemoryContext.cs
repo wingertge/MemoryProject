@@ -13,6 +13,7 @@ namespace MemoryServer.Core.Database
         public DbSet<UserList> UserLists { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<BurnedAssignment> BurnedAssignments { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         public MemoryContext(DbContextOptions options) : base(options) { }
 

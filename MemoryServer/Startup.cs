@@ -1,5 +1,6 @@
 ﻿using System;
 using Google.Apis.Auth.OAuth2;
+using JetBrains.Annotations;
 using MemoryCore.DbModels;
 using MemoryServer.Core.Business;
 using MemoryServer.Core.Business.Impl;
@@ -28,8 +29,9 @@ namespace MemoryServer
         private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices([NotNull] IServiceCollection services)
         {
+            services.AddApplicationInsightsTelemetry(Configuration["AppInsightsKey"]);
             services.Configure<Config>(Configuration.Bind);
             services.AddDbContextPool<MemoryContext>(
                 options =>

@@ -2,43 +2,46 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RuntimeIdentifiers>ubuntu.14.04-x64</RuntimeIdentifiers>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-    <Configurations>Debug;Release;Debug Main</Configurations>
     <UserSecretsId>73bdbf11-c476-47a7-9beb-73bf0dafcfa7</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/3a8a8cc5-9a47-4667-812d-8734e4caba86/resourcegroups/MemoryProject/providers/microsoft.insights/components/MemoryServer</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/3a8a8cc5-9a47-4667-812d-8734e4caba86/resourcegroups/MemoryProject/providers/microsoft.insights/components/MemoryServer</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>TRACE</DefineConstants>
-    <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
-  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="k8s\.kube\schema\v1.6.8\apis\extensions\v1beta1\schema.json" />
+    <Content Include="k8s\.kube\schema\v1.6.8\api\v1\schema.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="k8s\canary\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="CloudStorage.Wrapper" Version="1.1.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
-	  <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
-    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\MemoryCore\MemoryCore.csproj" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="k8s\.kube\schema\v1.6.8\schema050393663" />
+    <None Include="k8s\.kube\schema\v1.6.8\schema851321442" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MemoryServer.Core\MemoryServer.Core.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Controllers.Auth.en-us.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
+
 </Project>
- 
