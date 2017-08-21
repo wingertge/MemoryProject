@@ -272,3 +272,5 @@ report.html
 dist
 extracted
 docker-compose.override.yml
+.kube
+**/.kube
