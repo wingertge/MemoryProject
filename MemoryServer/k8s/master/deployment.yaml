@@ -30,11 +30,11 @@ spec:
               value: "true"
             - name: storageBucketName
               value: memoryproject-reviews-master
-			- name: AppInsightsKey
-			  valueFrom:
-			    secretKeyRef:
-				  name: api-keys
-				  key: appinsights-api
+            - name: AppInsightsKey
+              valueFrom:
+                secretKeyRef:
+                  name: api-keys
+                  key: appinsights-api
           ports:
             - containerPort: 5000
               name: memoryserver
