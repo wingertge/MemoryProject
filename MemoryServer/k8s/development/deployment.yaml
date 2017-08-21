@@ -26,11 +26,11 @@ spec:
               value: Production
             - name: ASPNETCORE_PORT
               value: "5000"
-			- name: AppInsightsKey
-			  valueFrom:
-			    secretKeyRef:
-				  name: api-keys
-				  key: appinsights-api
+            - name: AppInsightsKey
+              valueFrom:
+                secretKeyRef:
+                  name: api-keys
+                  key: appinsights-api
           ports:
             - containerPort: 5000
               name: memoryserver

@@ -22,7 +22,7 @@ namespace MemoryClient.Web
         private HttpClientHandler _httpHandler;
         private HttpClient _httpClient;
 
-        public ApiAccess([NotNull] IConfigurationRoot config, [NotNull] ILogger<ApiAccess> logger)
+        public ApiAccess([NotNull] IConfiguration config, [NotNull] ILogger<ApiAccess> logger)
         {
             _logger = logger;
             BaseUri = new Uri(config["ApiProtocol"] + "://" + config["ApiHost"] + ":" + config["ApiPort"] + "/api/");
