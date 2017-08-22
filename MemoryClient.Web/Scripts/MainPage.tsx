@@ -13,7 +13,7 @@ import * as bootstrap from "bootstrap"; //only for webpack
 const appCreateDOM = (messages, css, themeData) => {
     var temp = bootstrap;
     ReactIntl.addLocaleData(en);
-
+    Util.setCustomStyle(css, themeData);
     Util.setupValidator();
 
     ReactDOM.render(

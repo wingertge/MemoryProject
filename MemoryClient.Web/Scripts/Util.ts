@@ -24,12 +24,12 @@ export class Util {
     }
 
     static setCustomStyle(css, themeData) {
-        function camelCaseToDash(myStr) {
+        function camelCaseToDash(myStr: string) {
             return myStr.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
         }
 
         const replaceAll = (target, search, replacement) => {
-            function escapeRegExp(str) {
+            function escapeRegExp(str: string) {
                 return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
             }
 
@@ -45,7 +45,7 @@ export class Util {
             }
         }
 
-        let style = $(`<style>${fixedCss}</style>`);
+        const style = $(`<style>${fixedCss}</style>`);
         $("head").append(style);
     }
 }
