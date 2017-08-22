@@ -7,6 +7,7 @@ import { User } from "../Models";
 import * as Bootstrap from "bootstrap";
 import I18n from "../LocaleLoader";
 import ReviewBox from "./ReviewBox";
+import AccountBox from "./AccountBox";
 
 class HomeState {
     lessonsCount: number = 0;
@@ -43,7 +44,7 @@ class Home extends React.Component<HomeProps & InjectedIntlProps, HomeState> {
     loadState() {
         const p1 = $.getJSON("/api/reviews/current-count", a => this.setState({ reviewsCount: a.result || 0 }));
         const p2 = $.getJSON("/api/lessons/current-count", a => this.setState({ lessonsCount: a.result || 0 }));
-        const p3 = $.getJSON("/api/users/current", a => this.setState({ user: a.result || new User() }));
+        const p3 = $.getJSON("/api/auth/current-user", a => this.setState({ user: a.result || new User() }));
         const p4 = $.getJSON("/api/reviews/next-review-time", a => this.setState({ nextReview: new Date(a.result) }));
         const p5 = $.getJSON("/api/reviews/next-hour-count", a => this.setState({ reviewsNextHour: a.result }));
         const p6 = $.getJSON("/api/reviews/next-day-count", a => this.setState({ reviewsNextDay: a.result }));
@@ -126,6 +127,7 @@ class Home extends React.Component<HomeProps & InjectedIntlProps, HomeState> {
                 <LessonsBox />
                 <ReviewBox />
                 <ErrorBox />
+                <AccountBox />
             </div>
         );
     }

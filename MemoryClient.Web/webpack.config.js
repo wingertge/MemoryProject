@@ -2,6 +2,7 @@
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
+var ReactIntlPlugin = require("react-intl-webpack-plugin");
 
 const path = require("path");
 const DEBUG = true;
@@ -41,7 +42,20 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                loader: "awesome-typescript-loader"
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            cacheDirectory: false,
+                            metadataSubscribers: [ReactIntlPlugin.metadataContextFunctionName],
+                            plugins: ["transform-runtime", ["react-intl", {
+                                messagesDir: "./i18n"
+                            }]],
+                            presets: ["react", "es6", "stage-1"]
+                        }
+                    },
+                    { loader: "awesome-typescript-loader" }
+                ]
             },
             {
                 test: /\.css$/,
@@ -84,6 +98,7 @@ module.exports = {
     },
 
     plugins: [
+        new ReactIntlPlugin(),
         new BundleAnalyzerPlugin({
             analyzerMode: "static",
             openAnalyzer: false
@@ -97,9 +112,9 @@ module.exports = {
             }
         }),
         new webpack.ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery',
-            jquery: 'jquery',
+            jQuery: "jquery",
+            $: "jquery",
+            jquery: "jquery",
             "window.jQuery": "jquery",
             Tether: "tether",
             "window.Tether": "tether",

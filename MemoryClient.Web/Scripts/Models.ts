@@ -82,7 +82,7 @@ export class LanguagePair {
 
 export class ActionResult {
     succeeded: boolean;
-    errors: string[];
+    errors: { [key: string]: string[] } = {};
     errorCode: number;
 }
 
@@ -107,4 +107,10 @@ export class Theme {
     textPrimary: string;
     textSecondary: string;
     textTertiary: string;
+}
+
+export class ChangePasswordModel {
+    oldPassword: string;
+    newPassword: string;
+    newPasswordConfirm: string;
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "oldPasswordLabel",
+    "defaultMessage": "Current password"
+  },
+  {
+    "id": "newPasswordLabel",
+    "defaultMessage": "New password"
+  },
+  {
+    "id": "newPasswordConfirmLabel",
+    "defaultMessage": "Confirm password"
+  },
+  {
+    "id": "saveButton",
+    "defaultMessage": "Save"
+  },
+  {
+    "id": "cancelButton",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "changePasswordHeader",
+    "defaultMessage": "Change password"
+  },
+  {
+    "id": "changePasswordLabel",
+    "defaultMessage": "Change password:"
+  },
+  {
+    "id": "changePasswordButton",
+    "defaultMessage": "Change"
+  },
+  {
+    "id": "accountSettingsHeader",
+    "defaultMessage": "Account Settings"
+  }
+]

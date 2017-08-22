@@ -274,3 +274,4 @@ extracted
 docker-compose.override.yml
 .kube
 **/.kube
+**/i18n

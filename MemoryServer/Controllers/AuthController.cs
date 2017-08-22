@@ -1,15 +1,14 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using MemoryCore;
 using MemoryCore.DbModels;
 using MemoryCore.Models;
+using MemoryServer.Core.Business.Util;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using ActionResult = MemoryCore.ActionResult;
 
@@ -65,8 +64,7 @@ namespace MemoryServer.Controllers
                     return Json(new ActionResult
                     {
                         Succeeded = false,
-                        Errors = ModelState.SelectMany(a => a.Value.Errors.ToList().Select(b => (a.Key, b.ErrorMessage)))
-                            .ToList(),
+                        Errors = ModelState.ToErrorDictionary(),
                         ErrorCode = (int) ErrorCodes.InvalidCredentials
                     });
                 }
@@ -109,8 +107,7 @@ namespace MemoryServer.Controllers
             var user = new User { UserName = model.Username, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
             var actionResult = new ActionResult { Succeeded = result.Succeeded,
-                Errors = ModelState.SelectMany(a => a.Value.Errors.ToList().Select(b => (a.Key, b.ErrorMessage)))
-                    .ToList()
+                Errors = ModelState.ToErrorDictionary()
             };
             if (!result.Succeeded) return Json(actionResult);
             await _signInManager.SignInAsync(user, isPersistent: false);
@@ -131,6 +128,13 @@ namespace MemoryServer.Controllers
         {
             var result = new ActionResult { Succeeded = _signInManager.IsSignedIn(User) };
             return Json(result);
+        }
+
+        [HttpGet("current-user")]
+        public async Task<JsonResult> Current()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return Json(new JsonResult<User>(user));
         }
     }
 }

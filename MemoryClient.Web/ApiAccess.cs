@@ -71,7 +71,7 @@ namespace MemoryClient.Web
         public async Task<User> GetCurrentUser([NotNull] CookieCollection cookies)
         {
             _httpHandler.CookieContainer = GetCookieContainer(cookies);
-            var result = await _httpClient.GetAsync("users/current");
+            var result = await _httpClient.GetAsync("auth/current-user");
             if (!result.IsSuccessStatusCode)
                 _logger.LogError(@"Unsuccessful user retrieval: " + (int)result.StatusCode + ": " + result.ReasonPhrase);
 

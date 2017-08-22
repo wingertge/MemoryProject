@@ -1,8 +1,13 @@
 {
+  "accountSettingsHeader": "Account Settings",
   "add": "Add",
   "appName": "Memory",
   "cancel": "Cancel",
-  "currentGrade": "Current Grade",
+  "cancelButton": "Cancel",
+  "changePasswordButton": "Change",
+  "changePasswordHeader": "Change password",
+  "changePasswordLabel": "Change password:",
+  "currentStage": "Stage",
   "errorConfirm": "Close",
   "errorHeader": "An Error occured",
   "from": "From",
@@ -11,8 +16,11 @@
   "logout": "Sign Out",
   "manageAccount": "Account Settings",
   "meaning": "Meaning",
+  "newPasswordConfirmLabel": "Confirm password",
+  "newPasswordLabel": "New password",
   "nextReview": "Next Review",
   "nextReviews": "Next Reviews",
+  "oldPasswordLabel": "Current password",
   "pronunciation": "Pronunciation",
   "reading": "Reading",
   "reviewModalTitle": "Review",
@@ -21,6 +29,8 @@
   "reviewsNextHour": "Next Hour",
   "rightNow": "Right now",
   "save": "Save",
+  "saveButton": "Save",
   "solutionButton": "Show Solution",
-  "to": "To"
+  "to": "To",
+  "viewAssignments": "View Active Lessons"
 }

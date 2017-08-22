@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace MemoryCore
@@ -6,14 +7,18 @@ namespace MemoryCore
     public class ActionResult
     {
         public bool Succeeded { get; set; }
-        public List<(string Key, string Value)> Errors { get; set; } = new List<(string, string)>();
+        public Dictionary<string, List<string>> Errors { get; set; } = new Dictionary<string, List<string>>();
         public int ErrorCode { get; set; }
 
         [JsonIgnore]
         public string Error
         {
-            get => Errors.Count > 0 ? Errors[0].Value : "";
-            set => Errors.Add(("", value));
+            get => Errors.Count > 0 ? Errors.ToList()[0].Value[0] : "";
+            set
+            {
+                if(Errors[""] == null) Errors[""] = new List<string>();
+                Errors[""].Add(value);
+            }
         }
     }
 

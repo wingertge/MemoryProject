@@ -35,7 +35,9 @@ namespace MemoryClient.Web.Controllers
                 this.SetCookies(result.Cookies);
                 if (result.Succeeded) return Redirect("home");
                 foreach (var item in result.Errors)
-                    ModelState.AddModelError(item.Key, item.Value);
+                foreach (var error in item.Value)
+                    ModelState.AddModelError(item.Key, error);
+
                 return View(model);
             }
         }
