@@ -8,7 +8,7 @@ namespace MemoryCore.DbModels
     {
         public Guid Id { get; set; }
         [JsonIgnore]
-        public User Owner { get; set; }
+        public string OwnerId { get; set; }
         public Lesson Lesson { get; set; }
         public int Stage { get; set; }
         public DateTime NextReview { get; set; }

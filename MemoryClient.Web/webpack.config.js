@@ -11,6 +11,7 @@ const supportedLangs = ["en-US", "ja-JP"];
 module.exports = {
     entry: {
         main: ["./Scripts/MainPage.tsx", "./Content/main.scss"],
+        admin: ["./Scripts/AdminPage.tsx", "./Content/admin.scss"],
         vendor: "./Content/vendor.scss" 
     },
     output: {

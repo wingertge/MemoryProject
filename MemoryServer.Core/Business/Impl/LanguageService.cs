@@ -17,7 +17,7 @@ namespace MemoryServer.Core.Business.Impl
             _languageRepository = languageRepository;
         }
 
-        public async Task<LanguagesPair> GetLanguagesByPopularity(User user, Guid assignmentId)
+        public async Task<LanguagesPair> GetLanguagesByPopularity(string userId, Guid assignmentId, int lastLanguageFromId, int lastLanguageToId)
         {
             var fromSet = new HashSet<Language>();
             var toSet = new HashSet<Language>();
@@ -28,13 +28,15 @@ namespace MemoryServer.Core.Business.Impl
                 fromSet.Add(assignment.Lesson.LanguageFrom);
                 toSet.Add(assignment.Lesson.LanguageTo);
             }
-            if (user.LastLanguageFrom != null && user.LastLanguageTo != null)
+            var lastLanguageFrom = await _languageRepository.FindLanguageByIdAsync(lastLanguageFromId);
+            var lastLanguageTo = await _languageRepository.FindLanguageByIdAsync(lastLanguageToId);
+            if (lastLanguageFrom != null && lastLanguageTo != null)
             {
-                fromSet.Add(user.LastLanguageFrom);
-                toSet.Add(user.LastLanguageTo);
+                fromSet.Add(lastLanguageFrom);
+                toSet.Add(lastLanguageTo);
             }
-            var userFromList = await _languageRepository.GetLanguageListByUserPopularityAsync(user, true);
-            var userToList = await _languageRepository.GetLanguageListByUserPopularityAsync(user, false);
+            var userFromList = await _languageRepository.GetLanguageListByUserPopularityAsync(userId, true);
+            var userToList = await _languageRepository.GetLanguageListByUserPopularityAsync(userId, false);
             foreach (var language in userFromList)
                 fromSet.Add(language);
             foreach (var language in userToList)

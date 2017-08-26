@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace MemoryServer.Core.Business
+﻿namespace MemoryServer.Core.Business
 {
     public static class Roles
     {

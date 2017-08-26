@@ -9,7 +9,7 @@ namespace MemoryServer.Core.Business
 {
     public interface ILanguageService
     {
-        Task<LanguagesPair> GetLanguagesByPopularity(User user, Guid assignmentId);
+        Task<LanguagesPair> GetLanguagesByPopularity(string userId, Guid assignmentId);
     }
 
     public class LanguagesPair

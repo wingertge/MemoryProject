@@ -7,7 +7,7 @@ namespace MemoryServer.Core.Database.Repositories
 {
     public interface IAssignmentRepository
     {
-        Task<List<LessonAssignment>> GetAssignmentsByUserAsync(User user);
+        Task<List<LessonAssignment>> GetAssignmentsByUserAsync(string userId);
         Task<LessonAssignment> FindAssignmentByIdAsync(Guid id);
         Task<LessonAssignment> FindAssignmentByLessonIdAsync(Guid lessonId);
         Task<int> DeleteAssignmentById(Guid assignmentId);
@@ -15,7 +15,7 @@ namespace MemoryServer.Core.Database.Repositories
         Task<LessonAssignment> GetAssignmentByIdAsync(Guid id);
         Task<int> DeleteAssignmentAsync(LessonAssignment assignment);
         Task<int> CreateOrUpdateBurnedAssignmentAsync(BurnedAssignment burnedAssignment);
-        Task<int> GetPendingLessonCountAsync(User user);
-        Task<List<LessonAssignment>> GetPendingLessonsAsync(User user);
+        Task<int> GetPendingLessonCountAsync(string userId);
+        Task<List<LessonAssignment>> GetPendingLessonsAsync(string userId);
     }
 }

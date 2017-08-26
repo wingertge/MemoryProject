@@ -9,6 +9,6 @@ namespace MemoryCore.DbModels
         public Guid Id { get; set; }
         public string RelFileName { get; set; }
         [JsonIgnore]
-        public User Uploader { get; set; }
+        public string UploaderId { get; set; }
     }
 }
