@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using MemoryApi.Core.Database.Repositories;
 using MemoryCore.DbModels;
 using Microsoft.EntityFrameworkCore;
 

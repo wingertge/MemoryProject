@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\MemoryApi.Core\MemoryApi.Core.csproj" />
     <ProjectReference Include="..\MemoryCore\MemoryCore.csproj" />
   </ItemGroup>
 

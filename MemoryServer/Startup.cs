@@ -1,9 +1,11 @@
 ﻿using System;
 using Google.Apis.Auth.OAuth2;
 using JetBrains.Annotations;
+using MemoryApi.Core.Business;
+using MemoryApi.Core.Business.Impl;
+using MemoryApi.Core.Database.Repositories;
 using MemoryCore.DbModels;
 using MemoryServer.Core.Business;
-using MemoryServer.Core.Business.Impl;
 using MemoryServer.Core.Database;
 using MemoryServer.Core.Database.Impl;
 using MemoryServer.Core.Database.Repositories;

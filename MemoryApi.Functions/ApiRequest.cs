@@ -8,11 +8,10 @@ namespace MemoryApi.Functions
 {
     public class ApiRequest<T>
     {
-        public Dictionary<string, string> Query { get; set; }
         public string AccessToken { get; set; }
         public T Data { get; set; }
 
-        internal ApiRequest()
+        public ApiRequest()
         {
 
         }
@@ -23,7 +22,7 @@ namespace MemoryApi.Functions
         [ItemNotNull]
         public static async Task<ApiRequest<TData>> Create<TData>([NotNull] HttpRequestMessage origin)
         {
-            var result = new ApiRequest<TData> { Query = origin.GetQueryStrings() };
+            var result = new ApiRequest<TData>();
 
             var json = await origin.Content.ReadAsStringAsync();
             var jsonObj = JsonConvert.DeserializeObject<BodyObject<TData>>(json);

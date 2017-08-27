@@ -1,5 +1,4 @@
 ﻿using MemoryCore;
-using MemoryCore.DbModels;
 
 namespace MemoryClient.Web.Models
 {

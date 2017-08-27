@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using MemoryCore;
-using MemoryCore.DbModels;
 using MemoryCore.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

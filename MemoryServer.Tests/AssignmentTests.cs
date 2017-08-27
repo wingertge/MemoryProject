@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using MemoryServer.Core.Business;
-using MemoryServer.Core.Business.Impl;
+using MemoryApi.Core.Business;
+using MemoryApi.Core.Business.Impl;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;

@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using MemoryApi.Core.Business;
+using MemoryApi.Core.DbModels;
 using MemoryCore;
 using MemoryCore.DbModels;
 using MemoryServer.Core.Business;
@@ -25,7 +27,7 @@ namespace MemoryServer.Controllers
         public async Task<ActionResult> CurrentTheme()
         {
             var user = await _userManager.GetUserAsync(User);
-            return Json(new JsonResult<Theme>(_themeService.GetCurrentTheme(user)));
+            return Json(new JsonResult<Theme>(await _themeService.GetCurrentTheme(user)));
         }
     }
 }

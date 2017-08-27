@@ -1,5 +1,4 @@
 ﻿using System;
-using MemoryCore.DbModels;
 
 namespace MemoryCore.Models
 {

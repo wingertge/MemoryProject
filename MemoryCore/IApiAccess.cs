@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
-using MemoryCore.DbModels;
 using MemoryCore.Models;
 
 namespace MemoryCore

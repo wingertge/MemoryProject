@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using MemoryApi.Core.Business;
 using MemoryCore;
 using MemoryCore.DbModels;
 using MemoryCore.Models;

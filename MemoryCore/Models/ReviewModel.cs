@@ -4,7 +4,7 @@ namespace MemoryCore.Models
 {
     public class ReviewModel
     {
-        public Guid AssignmentId { get; set; }
+        public string AssignmentId { get; set; }
         public ReviewField FieldFrom { get; set; }
         public ReviewField FieldTo { get; set; }
         public string From { get; set; }

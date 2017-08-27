@@ -1,6 +1,4 @@
-﻿using MemoryCore.DbModels;
-
-namespace MemoryCore
+﻿namespace MemoryCore
 {
     public class JsonResult<T>
     {
