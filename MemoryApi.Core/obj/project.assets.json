@@ -2833,11 +2833,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\OneDrive\\Coding\\VSProjects\\MemoryApi.Core\\MemoryApi.Core.csproj",
+      "projectUniqueName": "D:\\OneDrive\\Coding\\VSProjects\\MemoryProject\\MemoryApi.Core\\MemoryApi.Core.csproj",
       "projectName": "MemoryApi.Core",
-      "projectPath": "D:\\OneDrive\\Coding\\VSProjects\\MemoryApi.Core\\MemoryApi.Core.csproj",
+      "projectPath": "D:\\OneDrive\\Coding\\VSProjects\\MemoryProject\\MemoryApi.Core\\MemoryApi.Core.csproj",
       "packagesPath": "C:\\Users\\Genna\\.nuget\\packages\\",
-      "outputPath": "D:\\OneDrive\\Coding\\VSProjects\\MemoryApi.Core\\obj\\",
+      "outputPath": "D:\\OneDrive\\Coding\\VSProjects\\MemoryProject\\MemoryApi.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
