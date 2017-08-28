@@ -1,0 +1,9 @@
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.3\MemoryCore.deps.json
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.3\MemoryCore.dll
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.3\MemoryCore.pdb
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.3\Microsoft.AspNetCore.Mvc.Abstractions.dll
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.3\Microsoft.AspNetCore.Mvc.Abstractions.xml
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netstandard1.3\MemoryCore.csprojResolveAssemblyReference.cache
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netstandard1.3\MemoryCore.AssemblyInfo.cs
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netstandard1.3\MemoryCore.dll
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netstandard1.3\MemoryCore.pdb

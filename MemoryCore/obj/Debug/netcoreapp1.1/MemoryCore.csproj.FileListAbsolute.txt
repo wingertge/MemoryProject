@@ -1,0 +1,7 @@
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netcoreapp1.1\MemoryCore.deps.json
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netcoreapp1.1\MemoryCore.dll
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netcoreapp1.1\MemoryCore.csprojResolveAssemblyReference.cache
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netcoreapp1.1\MemoryCore.AssemblyInfo.cs
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netcoreapp1.1\MemoryCore.pdb
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netcoreapp1.1\MemoryCore.dll
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netcoreapp1.1\MemoryCore.pdb

@@ -1,0 +1,4 @@
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.6\MemoryCore.deps.json
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\bin\Debug\netstandard1.6\MemoryCore.dll
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netstandard1.6\MemoryCore.csprojResolveAssemblyReference.cache
+D:\OneDrive\Coding\VSProjects\MemoryProject\MemoryCore\obj\Debug\netstandard1.6\MemoryCore.AssemblyInfo.cs

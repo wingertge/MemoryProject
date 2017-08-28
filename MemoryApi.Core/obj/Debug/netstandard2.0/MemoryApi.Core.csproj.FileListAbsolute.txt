@@ -1,0 +1,8 @@
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\bin\Debug\netstandard2.0\MemoryApi.Core.deps.json
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\bin\Debug\netstandard2.0\MemoryApi.Core.dll
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\obj\Debug\netstandard2.0\MemoryApi.Core.csprojResolveAssemblyReference.cache
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\obj\Debug\netstandard2.0\MemoryApi.Core.csproj.CoreCompileInputs.cache
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\obj\Debug\netstandard2.0\MemoryApi.Core.AssemblyInfoInputs.cache
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\obj\Debug\netstandard2.0\MemoryApi.Core.AssemblyInfo.cs
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\bin\Debug\netstandard2.0\MemoryCore.dll
+D:\OneDrive\Coding\VSProjects\MemoryApi.Core\bin\Debug\netstandard2.0\MemoryCore.pdb
